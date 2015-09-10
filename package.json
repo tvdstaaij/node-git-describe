@@ -1,0 +1,15 @@
+{
+  "name": "git-describe",
+  "version": "0.0.1",
+  "description": "Git describe information at runtime, with semver support",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intellifi/node-git-describe.git"
+  },
+  "author": "Intellifi",
+  "bugs": {
+    "url": "https://github.com/intellifi/node-git-describe/issues"
+  },
+  "homepage": "https://github.com/intellifi/node-git-describe#readme"
+}
