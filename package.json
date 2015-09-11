@@ -1,6 +1,6 @@
 {
   "name": "git-describe",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Git describe information at runtime, with semver support",
   "main": "index.js",
   "repository": {
