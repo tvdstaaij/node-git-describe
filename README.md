@@ -56,7 +56,7 @@ Option             | Default | Description
 `dirtySemver`      | `true`  | Appends `'.dirty'` to `semverString` if repo state is dirty (similar to `--dirty`)
 `longSemver`       | `false` | Always add commit distance and hash to `semverString` (similar to `--long`)
 `requireAnnotated` | `false` | Uses `--tags` if false, so that simple git tags are allowed
-`match`            | `'v*'`  | Uses the `--match` to filter tag names
+`match`            | `'v*'`  | Uses `--match` to filter tag names
 `customArguments`  | `[]`    | Array of additional arguments to pass to `git describe`
 
 [1]: https://git-scm.com/docs/git-describe
