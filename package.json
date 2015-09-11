@@ -2,17 +2,18 @@
   "name": "git-describe",
   "version": "1.0.0",
   "description": "Git describe information at runtime, with semver support",
+  "keywords": ["git", "semver"],
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/intellifi/node-git-describe.git"
+    "url": "git+https://github.com/intellifi-nl/node-git-describe.git"
   },
   "author": "Tim van der Staaij",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/intellifi/node-git-describe/issues"
+    "url": "https://github.com/intellifi-nl/node-git-describe/issues"
   },
-  "homepage": "https://github.com/intellifi/node-git-describe#readme",
+  "homepage": "https://github.com/intellifi-nl/node-git-describe#readme",
   "dependencies": {
     "lodash": "^3.10.1",
     "semver": "^5.0.1"
