@@ -1,5 +1,8 @@
 # git-describe
 
+[![npm version](https://img.shields.io/npm/v/git-describe.svg)](https://www.npmjs.com/package/git-describe)
+[![npm license](https://img.shields.io/npm/l/git-describe.svg)](https://www.npmjs.com/package/git-describe)
+
 This Node.js module runs [`git describe`][1] on the working directory or any
 other directory and parses the output to individual components. Additionally,
 if your tags follow [semantic versioning][2] the semver will be parsed and
@@ -7,7 +10,7 @@ supplemented with the `git describe` information as build metadata.
 
 Because this module is primarily meant for init sequences and the like, it only
 offers a straightforward synchronous API.
- 
+
 ## Installation
 
 Available from npm:
