@@ -54,7 +54,7 @@ var gitInfo = gitDescribe({
   semver: SemVer, // SemVer instance, see https://github.com/npm/node-semver
   suffix: '6-g3c9c15b',
   raw: 'v2.1.0-beta-6-g3c9c15b',
-  semverString: 'v2.1.0-beta+6.g3c9c15b' }
+  semverString: '2.1.0-beta+6.g3c9c15b' }
 ```
 
 ## Options
