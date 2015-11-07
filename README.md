@@ -6,10 +6,10 @@
 This Node.js module runs [`git describe`][1] on the working directory or any
 other directory and parses the output to individual components. Additionally,
 if your tags follow [semantic versioning][2] the semver will be parsed and
-supplemented with the `git describe` information as build metadata.
+supplemented with the git-specific information as build metadata.
 
-Because this module is primarily meant for init sequences and the like, it only
-offers a straightforward synchronous API.
+As of version 3.0.0, both synchronous and asynchronous calls are supported.
+Note that the synchronous version will throw an `Error` on failure.
 
 ## Installation
 
@@ -17,44 +17,57 @@ Available from npm:
 `npm install git-describe`
 
 ## Usage
+The module exposes two functions, `gitDescribe` (asynchronous) and
+`gitDescribeSync` (synchronous) &mdash; although `gitDescribe` can also be used
+in synchronous mode if the callback is omitted.
 
-The module exports a function taking an optional `directory` (defaults to
-working directory) and an optional `options` object. It returns an object
-containing the parsed information, or throws an `Error` if the git command
-fails.
+Both functions can take a `directory` string (defaults to working directory)
+and an `options` object. Either or both arguments can be omitted. If operating
+asynchronously, the callback argument must come last.
 
 ```javascript
-var gitDescribe = require('git-describe');
+var gitDescribe = require('git-describe').gitDescribe;
+var gitDescribeSync = require('git-describe').gitDescribeSync;
 
 // Target working directory
-var gitInfo = gitDescribe();
+var gitInfo = gitDescribeSync();
 
 // Target the directory of the calling script
-// Do this when you want to target the repo your app resides in
-var gitInfo = gitDescribe(__dirname);
+// Recommended when you want to target the repo your app resides in
+var gitInfo = gitDescribeSync(__dirname);
 
 // With options (see below)
-var gitInfo = gitDescribe(__dirname, {
+var gitInfo = gitDescribeSync(__dirname, {
     longSemver: true,
     dirtySemver: false
 });
 
 // Another example: working directory, use 16 character commit hash abbreviation
-var gitInfo = gitDescribe({
+var gitInfo = gitDescribeSync({
     customArguments: ['--abbrev=16']
 });
+
+// Asynchronous
+gitDescribe(__dirname, function(err, gitInfo) {
+    if (err)
+        return console.error(err);
+    console.dir(gitInfo);
+});
+
 ```
 
 ## Example output
 ```javascript
-{ dirty: false,
-  hash: 'g3c9c15b',
-  distance: 6,
-  tag: 'v2.1.0-beta',
-  semver: SemVer, // SemVer instance, see https://github.com/npm/node-semver
-  suffix: '6-g3c9c15b',
-  raw: 'v2.1.0-beta-6-g3c9c15b',
-  semverString: '2.1.0-beta+6.g3c9c15b' }
+{ 
+    dirty: false,
+    hash: 'g3c9c15b',
+    distance: 6,
+    tag: 'v2.1.0-beta',
+    semver: SemVer, // SemVer instance, see https://github.com/npm/node-semver
+    suffix: '6-g3c9c15b',
+    raw: 'v2.1.0-beta-6-g3c9c15b',
+    semverString: '2.1.0-beta+6.g3c9c15b'
+}
 ```
 
 ## Options
