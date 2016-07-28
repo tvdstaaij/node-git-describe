@@ -74,7 +74,7 @@ gitDescribe(__dirname, function(err, gitInfo) {
 
 Option             | Default     | Description
 ------------------ | ----------- | -----------
-`dirtySemver`      | `true`      | Appends `'.dirty'` to `semverString` if repo state is dirty (similar to `--dirty`).
+`dirtySemver`      | `true`      | Appends `'-dirty'` to `semverString` if repo state is dirty (similar to `--dirty`).
 `longSemver`       | `false`     | Always add commit distance and hash to `semverString` (similar to `--long`).
 `requireAnnotated` | `false`     | Uses `--tags` if false, so that simple git tags are allowed.
 `match`            | `'v[0-9]*'` | Uses `--match` to filter tag names. By default only tags resembling a version number are considered.
