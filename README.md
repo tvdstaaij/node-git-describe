@@ -26,8 +26,7 @@ and an `options` object. Either or both arguments can be omitted. If operating
 asynchronously, the callback argument must come last.
 
 ```javascript
-var gitDescribe = require('git-describe').gitDescribe;
-var gitDescribeSync = require('git-describe').gitDescribeSync;
+var {gitDescribe, gitDescribeSync} = require('git-describe');
 
 // Target working directory
 var gitInfo = gitDescribeSync();
@@ -47,13 +46,17 @@ var gitInfo = gitDescribeSync({
     customArguments: ['--abbrev=16']
 });
 
-// Asynchronous
+// Asynchronous with promise
+gitDescribe(__dirname)
+    .then((gitInfo) => console.dir(gitInfo))
+    .catch((err) => console.error(err));
+
+// Asynchronous with node-style callback
 gitDescribe(__dirname, function(err, gitInfo) {
     if (err)
         return console.error(err);
     console.dir(gitInfo);
 });
-
 ```
 
 ## Example output
@@ -74,8 +77,9 @@ gitDescribe(__dirname, function(err, gitInfo) {
 
 Option             | Default     | Description
 ------------------ | ----------- | -----------
-`dirtySemver`      | `true`      | Appends `'-dirty'` to `semverString` if repo state is dirty (similar to `--dirty`).
-`longSemver`       | `false`     | Always add commit distance and hash to `semverString` (similar to `--long`).
+`dirtyMark`        | `-dirty`    | Dirty mark to use if repo state is dirty (see git describe's `--dirty`).
+`dirtySemver`      | `true`      | Appends the dirty mark to `semverString` if repo state is dirty.
+`longSemver`       | `false`     | Always adds commit distance and hash to `semverString` (similar to git describe's `--long`).
 `requireAnnotated` | `false`     | Uses `--tags` if false, so that simple git tags are allowed.
 `match`            | `'v[0-9]*'` | Uses `--match` to filter tag names. By default only tags resembling a version number are considered.
 `customArguments`  | `[]`        | Array of additional arguments to pass to `git describe`. Not all arguments are useful and some may even break the library, but things like `--abbrev` and `--candidates` should be safe to add.
