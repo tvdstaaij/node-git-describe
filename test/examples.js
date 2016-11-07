@@ -47,7 +47,7 @@ describe('Readme examples', () => {
     });
 
     it('should work with a callback', (cb) => {
-        gitDescribe(__dirname, function(err, gitInfo) {
+        gitDescribe(__dirname, (err, gitInfo) => {
             if (err) {
                 cb(err);
             } else {

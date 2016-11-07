@@ -84,7 +84,7 @@ gitDescribe(__dirname, (err, gitInfo) => {
 
 Option             | Default     | Description
 ------------------ | ----------- | -----------
-`dirtyMark`        | `-dirty`    | Dirty mark to use if repo state is dirty (see git describe's `--dirty`).
+`dirtyMark`        | `'-dirty'`  | Dirty mark to use if repo state is dirty (see git describe's `--dirty`).
 `dirtySemver`      | `true`      | Appends the dirty mark to `semverString` if repo state is dirty.
 `longSemver`       | `false`     | Always adds commit distance and hash to `semverString` (similar to git describe's `--long`).
 `requireAnnotated` | `false`     | Uses `--tags` if false, so that simple git tags are allowed.
