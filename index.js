@@ -5,12 +5,26 @@ var gitDescribe = require('./lib/git-describe');
 
 module.exports = {
 
-    gitDescribe: function(directory, options, cb) {
+    gitDescribe: function() {
+        var gitDescribeArgs = [].slice.call(arguments);
         return new Promise(function(resolve, reject) {
-            gitDescribe(directory, options, function(err, result) {
+            var userCb = null;
+            for (var i = Math.min(3, gitDescribeArgs.length) - 1; i >= 0; i--) {
+                if (_.isFunction(gitDescribeArgs[i])) {
+                    userCb = gitDescribeArgs[i];
+                    gitDescribeArgs[i] = cb;
+                    break;
+                }
+            }
+            if (!userCb)
+                gitDescribeArgs.push(cb);
+
+            function cb(err, result) {
                 if (err) reject(err); else resolve(result);
-                if (_.isFunction(cb)) cb(err, result);
-            });
+                if (userCb) userCb(err, result);
+            }
+
+            gitDescribe.apply(this, gitDescribeArgs);
         });
     },
 
