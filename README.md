@@ -8,22 +8,28 @@ other directory and parses the output to individual components. Additionally,
 if your tags follow [semantic versioning][2] the semver will be parsed and
 supplemented with the git-specific information as build metadata.
 
-As of version 3.0.0, both synchronous and asynchronous calls are supported.
-Note that the synchronous version will throw an `Error` on failure.
-
 ## Installation
 
 Available from npm:
 `npm install git-describe`
 
+As of version 4.0.0, `semver` is an optional dependency that does not have to 
+be installed if you do not require semver functionality.
+
 ## Usage
-The module exposes two functions, `gitDescribe` (asynchronous) and
-`gitDescribeSync` (synchronous) &mdash; although `gitDescribe` can also be used
-in synchronous mode if the callback is omitted.
+
+The module exposes two functions: 
+
+* `gitDescribe(directory, options, cb) -> Promise`
+* `gitDescribeSync(directory, options) -> Object`
+
+The only difference is that `gitDescribe` has an asynchronous API 
+(either the callback argument or the returned promise can be used), whilst 
+`gitDescribeSync` is fully synchronous 
+(blocks until the git executable returns and throws an `Error` on failure).
 
 Both functions can take a `directory` string (defaults to working directory)
-and an `options` object. Either or both arguments can be omitted. If operating
-asynchronously, the callback argument must come last.
+and an `options` object. Either or both arguments can be omitted.
 
 ```javascript
 const {gitDescribe, gitDescribeSync} = require('git-describe');
@@ -52,7 +58,7 @@ gitDescribe(__dirname)
     .catch((err) => console.error(err));
 
 // Asynchronous with node-style callback
-gitDescribe(__dirname, function(err, gitInfo) {
+gitDescribe(__dirname, (err, gitInfo) => {
     if (err)
         return console.error(err);
     console.dir(gitInfo);
@@ -60,6 +66,7 @@ gitDescribe(__dirname, function(err, gitInfo) {
 ```
 
 ## Example output
+
 ```javascript
 { 
     dirty: false,
