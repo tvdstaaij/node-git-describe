@@ -7,6 +7,9 @@
     "semver"
   ],
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/intellifi-nl/node-git-describe.git"
@@ -22,5 +25,12 @@
   },
   "optionalDependencies": {
     "semver": "^5.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=0.12.17"
   }
 }
