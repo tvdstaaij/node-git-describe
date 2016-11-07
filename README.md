@@ -26,23 +26,23 @@ and an `options` object. Either or both arguments can be omitted. If operating
 asynchronously, the callback argument must come last.
 
 ```javascript
-var {gitDescribe, gitDescribeSync} = require('git-describe');
+const {gitDescribe, gitDescribeSync} = require('git-describe');
 
 // Target working directory
-var gitInfo = gitDescribeSync();
+const gitInfo = gitDescribeSync();
 
 // Target the directory of the calling script
 // Recommended when you want to target the repo your app resides in
-var gitInfo = gitDescribeSync(__dirname);
+const gitInfo = gitDescribeSync(__dirname);
 
 // With options (see below)
-var gitInfo = gitDescribeSync(__dirname, {
+const gitInfo = gitDescribeSync(__dirname, {
     longSemver: true,
     dirtySemver: false
 });
 
 // Another example: working directory, use 16 character commit hash abbreviation
-var gitInfo = gitDescribeSync({
+const gitInfo = gitDescribeSync({
     customArguments: ['--abbrev=16']
 });
 
