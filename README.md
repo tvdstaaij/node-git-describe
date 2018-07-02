@@ -15,7 +15,7 @@ Available from npm:
 `npm install git-describe`
 
 Tests are not included in the npm package — 
-clone the git repository to run tests.
+clone the git repository to run tests (Node.js 4+ required).
 
 As of version 4.0.0, `semver` is an optional dependency that does not have to 
 be installed if you do not require semver functionality.
