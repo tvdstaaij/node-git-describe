@@ -54,7 +54,7 @@ describe('gitDescribe', function() {
                 err.message.toLowerCase().should.include('git executable');
                 err.message.toLowerCase().should.include('path');
             })
-            .finally(function() {
+            .then(function() {
                 process.env.PATH = oldPath;
             });
     });
