@@ -44,6 +44,21 @@ describe('gitDescribe', function() {
             });
     });
 
+    it('should fail without git', function() {
+        repo.init();
+        var oldPath = process.env.PATH;
+        oldPath.should.not.be.empty;
+        process.env.PATH = '';
+        return gitDescribe(repoDir)
+            .then(_.ary(assert.fail, 0), function(err) {
+                err.message.toLowerCase().should.include('git executable');
+                err.message.toLowerCase().should.include('path');
+            })
+            .finally(function() {
+                process.env.PATH = oldPath;
+            });
+    });
+
     it('should work without a tag', function() {
         repo.changeData();
         repo.commit();
