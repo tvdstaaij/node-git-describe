@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/git-describe.svg)](https://www.npmjs.com/package/git-describe)
 [![npm license](https://img.shields.io/npm/l/git-describe.svg)](https://www.npmjs.com/package/git-describe)
 [![travis build](https://travis-ci.org/tvdstaaij/node-git-describe.svg?branch=master)](https://travis-ci.org/tvdstaaij/node-git-describe)
+[![vulnerabilities](https://snyk.io/test/npm/git-describe/badge.svg)](https://snyk.io/test/npm/git-describe)
 
 This Node.js module runs [`git describe`][1] on the working directory or any
 other directory and parses the output to individual components. Additionally,
