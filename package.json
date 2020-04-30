@@ -8,7 +8,9 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha test/index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,8 @@
   },
   "homepage": "https://github.com/tvdstaaij/node-git-describe#readme",
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "snyk": "^1.316.1"
   },
   "optionalDependencies": {
     "semver": "^5.6.0"
@@ -33,5 +36,6 @@
   },
   "engines": {
     "node": ">=4.0.0"
-  }
+  },
+  "snyk": true
 }
