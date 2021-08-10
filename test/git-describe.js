@@ -143,6 +143,33 @@ describe('gitDescribe', function() {
             });
     });
 
+    it('should present the short describe when long is false', function() {
+        repo.changeData();
+        repo.commit();
+        repo.tagAnnotated('v2.0.1');
+        return gitDescribe(repoDir, {long: false})
+            .then(function(gitInfo) {
+                gitInfo.tag.should.equal('v2.0.1');
+                gitInfo.raw.should.equal('v2.0.1');
+                gitInfo.suffix.should.equal('');
+                gitInfo.semverString.should.equal('2.0.1');
+            });
+    });
+
+    it('should present the short describe and long semver when long is false but longSemver is true', function() {
+        repo.changeData();
+        repo.commit();
+        repo.tagAnnotated('v2.0.2');
+        return gitDescribe(repoDir, {long: false, longSemver: true})
+            .then(function(gitInfo) {
+                gitInfo.tag.should.equal('v2.0.2');
+                gitInfo.raw.should.equal('v2.0.2');
+                gitInfo.suffix.should.equal('');
+                var template = /^2\.0\.2\+0\.g[a-f0-9]{7,}$/;
+                gitInfo.semverString.should.match(template);
+            });
+    });
+
     it('should work with a tag that is not a valid semver', function() {
         repo.changeData();
         repo.commit();
