@@ -1,6 +1,6 @@
 import { SemVer } from "semver";
 
-type GitInfo = {
+export type GitInfo = {
   dirty: boolean;
   raw: string;
   hash: string;
@@ -11,7 +11,7 @@ type GitInfo = {
   semverString: null | string;
   toString: () => string;
 };
-type GitDescribeOptions = {
+export type GitDescribeOptions = {
   dirtyMark?: string;
   dirtySemver?: boolean;
   long?: boolean;
@@ -21,31 +21,36 @@ type GitDescribeOptions = {
   customArguments?: Array<string>;
 };
 
-type Callback = (err: Error, gitInfo: GitInfo) => void;
+export type Callback = (err: Error, gitInfo: GitInfo) => void;
 
-declare function gitDescribe(directory: string): Promise<GitInfo>;
-declare function gitDescribe(options: GitDescribeOptions): Promise<GitInfo>;
-declare function gitDescribe(
+export declare function gitDescribe(directory: string): Promise<GitInfo>;
+export declare function gitDescribe(
+  options: GitDescribeOptions
+): Promise<GitInfo>;
+export declare function gitDescribe(
   directory: string,
   options: GitDescribeOptions
 ): Promise<GitInfo>;
 
-declare function gitDescribe(callback: Callback): void;
-declare function gitDescribe(
+export declare function gitDescribe(callback: Callback): void;
+export declare function gitDescribe(
   options: GitDescribeOptions,
   callback: Callback
 ): void;
-declare function gitDescribe(directory: string, callback: Callback): void;
-declare function gitDescribe(
+export declare function gitDescribe(
+  directory: string,
+  callback: Callback
+): void;
+export declare function gitDescribe(
   directory: string,
   options: GitDescribeOptions,
   callback: Callback
 ): void;
 
-declare function gitDescribeSync(): GitInfo;
-declare function gitDescribeSync(directory: string): GitInfo;
-declare function gitDescribeSync(options: GitDescribeOptions): GitInfo;
-declare function gitDescribeSync(
+export declare function gitDescribeSync(): GitInfo;
+export declare function gitDescribeSync(directory: string): GitInfo;
+export declare function gitDescribeSync(options: GitDescribeOptions): GitInfo;
+export declare function gitDescribeSync(
   directory: string,
   options: GitDescribeOptions
 ): GitInfo;
