@@ -14,6 +14,7 @@ type GitInfo = {
 type GitDescribeOptions = {
   dirtyMark?: string;
   dirtySemver?: boolean;
+  long?: boolean;
   longSemver?: boolean;
   requireAnnotated?: boolean;
   match?: string;
