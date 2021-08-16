@@ -93,7 +93,8 @@ Option             | Default     | Description
 ------------------ | ----------- | -----------
 `dirtyMark`        | `'-dirty'`  | Dirty mark to use if repo state is dirty (see git describe's `--dirty`).
 `dirtySemver`      | `true`      | Appends the dirty mark to `semverString` if repo state is dirty.
-`longSemver`       | `false`     | Always adds commit distance and hash to `semverString` (similar to git describe's `--long`).
+`long`             | `true`      | Always adds commit distance and hash to `raw`, `suffix` and `.toString()` (matches the behaviour of git describe's `--long`)
+`longSemver`       | `false`     | Always adds commit distance and hash to `semverString` (similar to git describe's `--long`, but for semver).
 `requireAnnotated` | `false`     | Uses `--tags` if false, so that simple git tags are allowed.
 `match`            | `'v[0-9]*'` | Uses `--match` to filter tag names. By default only tags resembling a version number are considered.
 `customArguments`  | `[]`        | Array of additional arguments to pass to `git describe`. Not all arguments are useful and some may even break the library, but things like `--abbrev` and `--candidates` should be safe to add.
