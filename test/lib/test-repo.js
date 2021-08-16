@@ -35,6 +35,8 @@ TestRepo.prototype.init = function() {
     this._execGit('config', 'core.autocrlf', 'false');
     this._execGit('config', 'user.name', 'Mocha');
     this._execGit('config', 'user.email', 'test@example.org');
+    this._execGit('config', 'tag.gpgsign', 'false');
+    this._execGit('config', 'commit.gpgsign', 'false');
 };
 
 TestRepo.prototype.changeData = function() {
