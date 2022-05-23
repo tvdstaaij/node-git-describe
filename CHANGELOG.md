@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.1](https://github.com/tvdstaaij/node-git-describe/compare/v4.1.0...v4.1.1) (2022-05-23)
+
+
+### Fixes and Improvements
+
+* Disable GPG signing in test repository ([22efe9f](https://github.com/tvdstaaij/node-git-describe/commit/22efe9f2a94199e76b862bcd698a44b561f4c577))
+
 ## [4.1.0](https://github.com/tvdstaaij/node-git-describe/compare/v4.0.4...v4.1.0) (2021-08-16)
 
 
