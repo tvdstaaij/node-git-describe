@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Fixes and Improvements
 
-* Disable GPG signing in test repository ([22efe9f](https://github.com/tvdstaaij/node-git-describe/commit/22efe9f2a94199e76b862bcd698a44b561f4c577))
+* Typescript `match` option now accepts null/false, if you want to not pass `--match` down to git ([9174ecc](https://github.com/tvdstaaij/node-git-describe/commit/9174eccd32e280cae8197c22f82d566ce2c08100))
 
 ## [4.1.0](https://github.com/tvdstaaij/node-git-describe/compare/v4.0.4...v4.1.0) (2021-08-16)
 
