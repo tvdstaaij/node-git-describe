@@ -17,7 +17,7 @@ export type GitDescribeOptions = {
   long?: boolean;
   longSemver?: boolean;
   requireAnnotated?: boolean;
-  match?: string;
+  match?: null | false | string;
   customArguments?: Array<string>;
 };
 
