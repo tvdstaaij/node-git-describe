@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.1](https://github.com/tvdstaaij/node-git-describe/compare/v4.1.0...v4.1.1) (2022-05-23)
+
+
+### Fixes and Improvements
+
+* Typescript `match` option now accepts null/false, if you want to not pass `--match` down to git ([9174ecc](https://github.com/tvdstaaij/node-git-describe/commit/9174eccd32e280cae8197c22f82d566ce2c08100))
+
 ## [4.1.0](https://github.com/tvdstaaij/node-git-describe/compare/v4.0.4...v4.1.0) (2021-08-16)
 
 
