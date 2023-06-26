@@ -8,7 +8,7 @@
 const _ = require('lodash');
 const path = require('path');
 const should = require('chai').should();
-const semver = require('semver');
+const {SemVer} = require('semver');
 const {gitDescribe, gitDescribeSync} = require('..');
 
 describe('Readme examples', () => {
@@ -65,7 +65,7 @@ describe('Readme examples', () => {
         gitInfo.tag.should.not.be.empty;
         gitInfo.raw.should.be.a('string');
         gitInfo.raw.should.not.be.empty;
-        gitInfo.semver.should.be.instanceof(semver);
+        gitInfo.semver.should.be.instanceof(SemVer);
         gitInfo.semverString.should.be.a('string');
         gitInfo.semverString.should.not.be.empty;
         gitInfo.dirty.should.be.a('boolean');
