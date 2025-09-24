@@ -111,6 +111,13 @@ describe('gitDescribe', function() {
             });
     });
 
+    it('should accept an array for match', function() {
+        return gitDescribe(repoDir, {match: [ '*3' ] })
+            .then(function(gitInfo) {
+                gitInfo.tag.should.equal('v1.2.3');
+            });
+    });
+
     it('should recognize dirty state', function() {
         repo.changeData();
         return gitDescribe(repoDir)
